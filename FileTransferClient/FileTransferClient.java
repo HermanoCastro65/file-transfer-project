@@ -10,18 +10,19 @@ public class FileTransferClient {
     }
 
     // Obtém a porta do servidor a partir do primeiro argumento fornecido na linha de comando
-    final int SERVER_PORT = Integer.parseInt(args[0]); 
+    final int SERVER_PORT = Integer.parseInt(args[0]);
 
     // Obtém o endereço IP do servidor a partir do segundo argumento fornecido na linha de comando
-    final String SERVER_IP = args[1]; 
+    final String SERVER_IP = args[1];
 
     // Obtém o nome do arquivo a ser transferido a partir do terceiro argumento fornecido na linha de comando
-    String fileName = args[2]; 
+    String fileName = args[2];
 
     try (Socket clientSocket = new Socket(SERVER_IP, SERVER_PORT);
-         PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-         FileInputStream fileInputStream = new FileInputStream(fileName);
-         BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream)) {
+      // Configura fluxos de saída para enviar dados ao servidor e fluxos de entrada para ler o arquivo local
+      PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true); 
+      FileInputStream fileInputStream = new FileInputStream(fileName); 
+      BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream)) {
 
       // Enviar o nome do arquivo ao servidor
       out.println(fileName);
