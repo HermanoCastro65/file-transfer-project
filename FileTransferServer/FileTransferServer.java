@@ -33,7 +33,8 @@ public class FileTransferServer {
         long startTime = System.nanoTime();
 
         // Receber e gravar os dados do arquivo
-        byte[] buffer = new byte[1024];
+        final int filesize= 6022386;
+        byte[] buffer = new byte[filesize];
         int bytesRead;
         while ((bytesRead = clientSocket.getInputStream().read(buffer)) != -1) {
           bufferedOutputStream.write(buffer, 0, bytesRead);

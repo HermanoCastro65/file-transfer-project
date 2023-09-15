@@ -19,7 +19,8 @@ public class FileTransferClient {
       out.println(fileName);
 
       // Enviar os dados do arquivo ao servidor
-      byte[] buffer = new byte[1024];
+      final int filesize= 6022386;
+      byte[] buffer = new byte[filesize];
       int bytesRead;
       while ((bytesRead = bufferedInputStream.read(buffer)) != -1) {
         clientSocket.getOutputStream().write(buffer, 0, bytesRead);
