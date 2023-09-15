@@ -91,4 +91,5 @@ Aqui está uma explicação do código do servidor:
 * O servidor recebe dados do arquivo do cliente em um loop, gravando-os no arquivo de saída.
 * Após a conclusão da transferência, o servidor calcula a taxa de transferência em Mbps.
 * As conexões de entrada e saída, bem como os arquivos, são fechados após a transferência.
-* O servidor exibe uma mensagem indicando que a
+* O servidor exibe uma mensagem indicando que a transferência do arquivo está completa.
+* Qualquer exceção que ocorra durante a execução é tratada e as informações de erro são impressas.
